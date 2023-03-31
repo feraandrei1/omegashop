@@ -1,0 +1,7 @@
+button, input, textarea, select{
+  background-color: transparent;
+  border-radius: 0;
+  color: inherit;
+  line-height: inherit;
+  appearance: none;
+}

@@ -1,0 +1,9 @@
+@use "../base" as *;
+
+@supports (--css: variables) {
+  :root {
+    @include breakpoint(md) {
+      --space-unit: 1.25rem;
+    }
+  }
+}

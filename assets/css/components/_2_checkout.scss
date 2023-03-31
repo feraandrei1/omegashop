@@ -1,0 +1,44 @@
+@use "../base" as *;
+
+.checkout {
+  position: relative;
+  z-index: 1;
+}
+
+.checkout__billing-checkbox {
+  display: none;
+}
+
+.js {
+  .checkout__billing-checkbox {
+    display: block;
+  }
+
+  .checkout__billing-info {
+    display: none;
+  }
+}
+
+@include breakpoint(lg) {
+  .checkout {
+    .order-summary {
+      position: sticky;
+      top: calc(var(--space-sm) + var(--mega-nav-height));
+      max-height: calc(100vh - var(--space-sm) - var(--mega-nav-height));
+      overflow: auto;
+    }
+
+    .order-summary__header,
+    .order-summary__footer {
+      position: sticky;
+    }
+
+    .order-summary__header {
+      top: 0;
+    }
+
+    .order-summary__footer {
+      bottom: 0;
+    }
+  }
+}

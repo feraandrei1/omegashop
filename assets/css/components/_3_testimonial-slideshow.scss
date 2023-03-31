@@ -1,0 +1,28 @@
+@use "../base" as *;
+
+:root {
+  --testimonial-slideshow-profile-img-size: 48px;
+
+  @include breakpoint(md) {
+    --testimonial-slideshow-profile-img-size: 64px;
+  }
+}
+
+.testimonial-slideshow {
+  --slideshow-height: 320px;
+
+  @include breakpoint(md) {
+    --slideshow-height: 420px;
+  }
+}
+
+.testimonial-slideshow__profile-img {
+  width: var(--testimonial-slideshow-profile-img-size);
+  height: var(--testimonial-slideshow-profile-img-size);
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+  }
+}

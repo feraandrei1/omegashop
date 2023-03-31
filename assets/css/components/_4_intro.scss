@@ -1,0 +1,25 @@
+@use "../base" as *;
+
+.intro {
+  padding-top: var(--mega-nav-height);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.intro--top-overlay {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(
+      alpha(var(--color-black), 0.85),
+      alpha(var(--color-black), 0)
+    );
+    mix-blend-mode: multiply;
+  }
+}

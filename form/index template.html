@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/reset.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/1_radios-checkboxes.css" rel="stylesheet">
+  <link href="css/2_form-template-v3.css" rel="stylesheet">
+
+  <link href="script.js" rel="stylesheet">
+  <link href="js/components.js" rel="stylesheet">
+  <link href="js/script69.js" rel="stylesheet">
+
+  <link href="script.js" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+
+  <title>Get Started</title>
+</head>
+
+<body>
+
+<form class="form-template-v3">
+  <fieldset class="fj3-margin-bottom-md fj3-padding-bottom-md fj3-border-bottom">
+    <div class="fj3-text-component fj3-margin-bottom-md fj3-text-center">
+      <h2>Contact us.</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    </div>
+
+    <div class="fj3-margin-bottom-xs">
+      <div class="fj3-grid fj3-gap-2xs fj3-items-center@md">
+        <div class="fj3-col-4@md">
+          <label class="fj3-form-label" for="firstName">First name</label>
+        </div>
+        
+        <div class="fj3-col-8@md">
+          <input class="fj3-form-control fj3-width-100%" type="text" name="firstName" id="firstName" required>
+        </div>
+      </div>
+    </div>
+
+    <div class="fj3-margin-bottom-xs">
+      <div class="fj3-grid fj3-gap-2xs fj3-items-center@md">
+        <div class="fj3-col-4@md">
+          <label class="fj3-form-label" for="lastName">Last name</label>
+        </div>
+        
+        <div class="fj3-col-8@md">
+          <input class="fj3-form-control fj3-width-100%" type="text" name="lastName" id="lastName" required>
+        </div>
+      </div>
+    </div>
+
+    <div class="fj3-margin-bottom-xs">
+      <div class="fj3-grid fj3-gap-2xs fj3-items-center@md">
+        <div class="fj3-col-4@md">
+          <label class="fj3-form-label" for="inputEmail">Email</label>
+        </div>
+        
+        <div class="fj3-col-8@md">
+          <input class="fj3-form-control fj3-width-100%" type="email" name="inputEmail" id="inputEmail" required>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="fj3-grid fj3-gap-2xs fj3-items-center@md">
+        <div class="fj3-col-4@md">
+          <label class="fj3-form-label" for="textarea">Textarea</label>
+          <p class="fj3-text-xs fj3-color-contrast-medium fj3-margin-top-4xs">Optional</p>
+        </div>
+        
+        <div class="fj3-col-8@md">
+          <textarea class="fj3-form-control fj3-width-100%" name="textarea" id="textarea"></textarea>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset class="fj3-margin-bottom-md fj3-padding-bottom-md fj3-border-bottom">
+    <div class="fj3-text-component fj3-margin-bottom-md fj3-text-center">
+      <h2>Radios and Checkboxes</h2>
+    </div>
+
+    <div class="fj3-margin-bottom-md">
+      <div class="fj3-grid fj3-gap-2xs fj3-items-center@md">
+        <div class="fj3-col-4@md">
+          <div class="fj3-form-label">Make a choice</div>
+        </div>
+  
+        <div class="fj3-col-8@md">
+          <ul class="fj3-flex fj3-flex-wrap fj3-gap-md">
+            <li>
+              <input class="radio" type="radio" name="radioButton" id="radio1" checked>
+              <label for="radio1">Option 1</label>
+            </li>
+      
+            <li>
+              <input class="radio" type="radio" name="radioButton" id="radio2">
+              <label for="radio2">Option 2</label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="fj3-grid fj3-gap-2xs fj3-items-center@md">
+        <div class="fj3-col-4@md">
+          <div class="fj3-form-label">Choose 1+ options</div>
+        </div>
+  
+        <div class="fj3-col-8@md">
+          <ul class="fj3-flex fj3-flex-wrap fj3-gap-md">
+            <li>
+              <input class="checkbox" type="checkbox" id="checkbox1">
+              <label for="checkbox1">Option 1</label>
+            </li>
+      
+            <li>
+              <input class="checkbox" type="checkbox" id="checkbox2">
+              <label for="checkbox2">Option 2</label>
+            </li>
+
+            <li>
+              <input class="checkbox" type="checkbox" id="checkbox3">
+              <label for="checkbox3">Option 3</label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+  <div class="fj3-text-right">
+    <button class="fj3-btn fj3-btn--primary">Submit</button>
+  </div>
+</form>
+
+  <script src="https://unpkg.com/codyhouse-framework/main/assets/js/util.js"></script>
+  <script src="js/components.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

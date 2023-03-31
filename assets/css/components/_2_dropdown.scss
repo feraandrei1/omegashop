@@ -1,0 +1,127 @@
+@use "../base" as *;
+
+:root {
+  --dropdown-item-padding: var(--space-xxs) var(--space-sm);
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown__menu {
+  width: 200px;
+  border-radius: var(--radius-md);
+  padding: var(--space-xxxs) 0;
+  background-color: var(--color-bg-light);
+  box-shadow: var(--inner-glow), var(--shadow-sm);
+  z-index: var(--z-index-popover, 5);
+  position: absolute;
+  left: 0;
+  top: 100%;
+
+  @include spaceUnit(1rem);
+  @include textUnit(1rem);
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0s 0.2s;
+}
+
+@media (pointer: fine) {
+  .dropdown__wrapper:hover > .dropdown__menu,
+  .dropdown__sub-wrapper:hover > .dropdown__menu {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.2s;
+  }
+
+  .dropdown__sub-wrapper:hover > .dropdown__menu {
+    left: 100%;
+  }
+}
+
+@media not all and (pointer: fine) {
+  .dropdown__trigger-icon {
+    display: none;
+  }
+}
+
+.dropdown__item {
+  display: block;
+  text-decoration: none;
+  color: var(--color-contrast-high);
+  padding: var(--dropdown-item-padding);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: 0.2s;
+
+  &:hover,
+  &.dropdown__item--hover {
+    background-color: alpha(var(--color-contrast-higher), 0.075);
+  }
+}
+
+.dropdown__separator {
+  height: 1px;
+  background-color: var(--color-contrast-lower);
+  margin: var(--dropdown-item-padding);
+}
+
+.dropdown__sub-wrapper {
+  position: relative;
+
+  > .dropdown__item {
+    position: relative;
+    padding-right: calc(var(--space-sm) + 12px);
+
+    .icon {
+      position: absolute;
+      display: block;
+      width: 12px;
+      height: 12px;
+      right: var(--space-xxs);
+      top: calc(50% - 6px);
+    }
+  }
+
+  > .dropdown__menu {
+    top: calc(var(--space-xxs) * -1);
+    box-shadow: var(--inner-glow), var(--shadow-md);
+  }
+}
+
+.js {
+  .dropdown__menu {
+    top: calc(100% + 4px);
+  }
+
+  .dropdown__sub-wrapper {
+    .dropdown__menu {
+      top: calc(var(--space-xxs) * -1);
+    }
+  }
+
+  @media (pointer: fine) {
+    .dropdown__menu--is-visible {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.2s;
+    }
+  }
+
+  .dropdown__menu--is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0s 0.2s;
+  }
+
+  .dropdown__sub-wrapper > .dropdown__menu--is-visible,
+  .dropdown__sub-wrapper > .dropdown__menu--is-hidden {
+    left: 100%;
+
+    &.dropdown__menu--left {
+      left: -100%;
+    }
+  }
+}

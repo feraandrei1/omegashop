@@ -1,0 +1,38 @@
+@use "../base" as *;
+
+.carousel-v3 {
+  --carousel-grid-gap: var(--space-xs);
+  --carousel-item-auto-size: 260px;
+  --carousel-transition-duration: 0.5s;
+}
+
+.carousel-v3__control {
+  height: 3em;
+  width: 3em;
+  background-color: alpha(var(--color-contrast-higher), 0.7);
+  backdrop-filter: blur(10px);
+  pointer-events: auto;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+
+  &:hover {
+    background-color: alpha(var(--color-contrast-higher), 0.9);
+  }
+
+  &[disabled] {
+    display: none;
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+
+  .icon {
+    display: block;
+    color: var(--color-bg);
+  }
+}

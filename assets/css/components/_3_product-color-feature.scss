@@ -1,0 +1,25 @@
+@use "../base" as *;
+
+.prod-color-feature {
+  --slideshow-height: auto;
+}
+
+@include breakpoint(md) {
+  .prod-color-feature {
+    .color-swatches {
+      --color-swatch-size: 24px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      margin: 0 !important;
+    }
+
+    .color-swatches__legend {
+      @include srHide;
+    }
+
+    .color-swatches__list {
+      flex-direction: column;
+    }
+  }
+}

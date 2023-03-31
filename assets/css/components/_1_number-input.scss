@@ -1,0 +1,135 @@
+@use "../base" as *;
+
+.number-input__btn {
+  display: none;
+}
+
+.js {
+  .number-input {
+    .form-control::-webkit-inner-spin-button,
+    .form-control::-webkit-outer-spin-button {
+      display: none;
+    }
+
+    .form-control {
+      -moz-appearance: textfield;
+      display: block;
+    }
+  }
+
+  .number-input__btn {
+    display: inline-block;
+    display: flex;
+  }
+}
+
+.js .number-input--v1 {
+  --number-input-btn-width: 40px;
+  position: relative;
+  width: 5em;
+
+  .form-control {
+    padding-right: var(--number-input-btn-width);
+    width: 100%;
+  }
+
+  .number-input__btns {
+    position: absolute;
+    height: calc(100% - var(--space-xxxs) * 2);
+    top: var(--space-xxxs);
+    right: 0;
+    width: var(--number-input-btn-width);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .number-input__btn {
+    position: relative;
+    height: 50%;
+    width: calc(100% - var(--space-xxxs));
+    background: var(--color-contrast-lower);
+    border-radius: var(--radius-sm);
+
+    .icon {
+      display: block;
+      font-size: 0.8em;
+      width: 1em;
+      height: 1em;
+      position: absolute;
+      left: calc(50% - 0.5em);
+      top: calc(50% - 0.5em);
+    }
+
+    &:hover {
+      background-color: var(--color-contrast-low);
+    }
+
+    &:focus {
+      outline: none;
+      background-color: var(--color-primary);
+
+      .icon {
+        color: var(--color-white);
+      }
+    }
+
+    &:active {
+      background-color: lightness(var(--color-primary), 0.9);
+    }
+  }
+
+  .number-input__btn--plus {
+    margin-bottom: var(--space-xxxxs);
+  }
+}
+
+.js .number-input--v2 {
+  --number-input-btn-width: 1.6em;
+  display: flex;
+  align-items: center;
+  font-size: 0.875em;
+
+  .form-control {
+    margin: 0 var(--space-xxs);
+    width: 4em;
+    order: 1;
+    text-align: center;
+  }
+
+  .number-input__btn {
+    width: var(--number-input-btn-width);
+    height: var(--number-input-btn-width);
+    border-radius: 50%;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-contrast-lower);
+
+    &:hover {
+      background-color: var(--color-contrast-low);
+    }
+
+    &:focus {
+      outline: none;
+      background-color: var(--color-primary);
+
+      .icon {
+        color: var(--color-white);
+      }
+    }
+
+    &:active {
+      background-color: lightness(var(--color-primary), 0.9);
+    }
+
+    .icon {
+      font-size: 12px;
+      width: 1em;
+      height: 1em;
+    }
+  }
+
+  .number-input__btn--plus {
+    order: 2;
+  }
+}

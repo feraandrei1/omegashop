@@ -1,0 +1,21 @@
+@use "../base" as *;
+
+:root {
+  --drop-cap-lines: 3;
+}
+
+.drop-cap::first-letter {
+  float: left;
+  line-height: 1;
+  font-size: calc(1em * var(--drop-cap-lines) * var(--body-line-height));
+  padding: 0 0.125em 0 0;
+  text-transform: uppercase;
+  color: var(--color-contrast-higher);
+}
+
+.text-component .drop-cap::first-letter {
+  font-size: calc(
+    1em * var(--drop-cap-lines) * var(--body-line-height) *
+      var(--line-height-multiplier)
+  );
+}

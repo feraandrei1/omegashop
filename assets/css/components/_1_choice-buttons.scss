@@ -1,0 +1,110 @@
+@use "../base" as *;
+
+:root {
+  --choice-btn-border-width: 1px;
+  --choice-btn-align-items: center;
+  --choice-btn-input-size: 20px;
+  --choice-btn-input-icon-size: 16px;
+  --choice-btn-input-icon-color: var(--color-white);
+  --choice-btn-input-border-width: 1px;
+  --choice-btn-input-margin-right: var(--space-sm);
+  --choice-btn-input-translate-y: 0em;
+}
+
+.choice-btns {
+  display: flex;
+  flex-direction: column;
+}
+
+.choice-btn__grid {
+  display: none;
+}
+
+.js {
+  .choice-btn__fallback {
+    @include srHide;
+  }
+
+  .choice-btn {
+    background-color: var(--color-bg);
+    border-width: var(--choice-btn-border-width);
+    border-style: solid;
+    border-color: var(--color-contrast-low);
+    border-radius: 0px;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+      border-color: lightness(var(--color-contrast-low), 0.85);
+    }
+
+    &.choice-btn--focus,
+    &.choice-btn--checked {
+      border-color: var(--color-primary);
+    }
+
+    &.choice-btn--focus {
+      box-shadow: 0 0 0 2px alpha(var(--color-primary), 0.2);
+    }
+  }
+
+  .choice-btn__grid {
+    display: block;
+    display: grid;
+    grid-template-columns: var(--choice-btn-input-size) 1fr;
+    grid-gap: var(--choice-btn-input-margin-right);
+    align-items: var(--choice-btn-align-items);
+  }
+}
+
+.choice-btn__input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-bg);
+  width: var(--choice-btn-input-size);
+  height: var(--choice-btn-input-size);
+  border-width: var(--choice-btn-input-border-width);
+  border-style: solid;
+  border-color: var(--color-contrast-low);
+  position: relative;
+  top: var(--choice-btn-input-translate-y);
+
+  .icon {
+    color: var(--choice-btn-input-icon-color);
+    font-size: var(--choice-btn-input-icon-size);
+  }
+
+  .choice-btn--checked & {
+    border-color: var(--color-primary);
+    background-color: var(--color-primary);
+  }
+}
+
+.choice-btn__input--checkbox {
+  border-radius: var(--radius-sm);
+
+  .icon > * {
+    transition: stroke-dashoffset 0.3s;
+    stroke-dashoffset: 16;
+    stroke-dasharray: 17;
+  }
+
+  .choice-btn--checked & .icon > * {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 17;
+  }
+}
+
+.choice-btn__input--radio {
+  border-radius: 50%;
+
+  .icon {
+    transition: transform 0.3s var(--bounce);
+    transform: scale(0);
+  }
+
+  .choice-btn--checked & .icon {
+    transform: scale(1);
+  }
+}

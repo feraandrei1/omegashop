@@ -1,0 +1,15 @@
+:root {
+  --radius: 0.25em;
+}
+
+.text-style-1 {
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1px;
+    background-color: currentColor;
+    vertical-align: middle;
+    margin-right: var(--space-xxxs);
+  }
+}

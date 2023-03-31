@@ -1,0 +1,75 @@
+@use "../base" as *;
+
+.overscroll-section {
+  position: relative;
+  --overscroll-section-opacity: 0;
+}
+
+.overscroll-section__sticky-content {
+  position: sticky;
+  z-index: 1;
+}
+
+.overscroll-section__scroll-content {
+  position: relative;
+  z-index: 2;
+  transform: translateZ(0);
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    transform: translateY(-100%);
+  }
+
+  &::before {
+    height: 100vh;
+    background: var(--color-black);
+    opacity: var(--overscroll-section-opacity, 0);
+    z-index: 1;
+  }
+
+  &::after {
+    height: 80px;
+    background: linear-gradient(
+        to top,
+        alpha(var(--color-black), 0.045) 0%,
+        alpha(var(--color-black), 0) 5%
+      ),
+      linear-gradient(
+        to top,
+        alpha(var(--color-black), 0.045) 0%,
+        alpha(var(--color-black), 0) 10%
+      ),
+      linear-gradient(
+        to top,
+        alpha(var(--color-black), 0.045) 0%,
+        alpha(var(--color-black), 0) 20%
+      ),
+      linear-gradient(
+        to top,
+        alpha(var(--color-black), 0.045) 0%,
+        alpha(var(--color-black), 0) 50%
+      ),
+      linear-gradient(
+        to top,
+        alpha(var(--color-black), 0.045) 0%,
+        alpha(var(--color-black), 0) 100%
+      );
+  }
+}
+
+.overscroll-section--disabled {
+  .overscroll-section__sticky-content {
+    position: static;
+  }
+
+  .overscroll-section__scroll-content::before,
+  .overscroll-section__scroll-content::after {
+    display: none;
+  }
+}

@@ -1,0 +1,132 @@
+@use "../base" as *;
+
+.adapt-nav {
+  position: relative;
+}
+
+.adapt-nav__list {
+  display: flex;
+  align-items: center;
+}
+
+.adapt-nav__item {
+  flex-shrink: 0;
+  margin-right: var(--space-xs);
+}
+
+.adapt-nav__link {
+  display: block;
+  color: var(--color-contrast-high);
+  text-decoration: none;
+  padding: var(--space-xxs) var(--space-xs);
+  border-radius: 0.1em;
+  transition: 0.2s;
+  @include fontSmooth;
+
+  &:hover {
+    background-color: var(--color-contrast-lower);
+  }
+
+  &[aria-current="page"] {
+    color: var(--color-bg);
+    background-color: var(--color-contrast-higher);
+  }
+}
+
+.adapt-nav__item--hidden {
+  visibility: hidden;
+}
+
+.js {
+  .adapt-nav {
+    opacity: 0;
+  }
+
+  .adapt-nav--is-visible {
+    opacity: 1;
+  }
+
+  .adapt-nav__item--more {
+    position: relative;
+    margin-right: 0;
+  }
+
+  .adapt-nav__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+
+    .icon {
+      display: block;
+      width: 16px;
+      height: 16px;
+    }
+
+    &:hover {
+      background-color: var(--color-contrast-lower);
+    }
+
+    &:active {
+      background-color: var(--color-contrast-low);
+    }
+  }
+
+  .adapt-nav__dropdown {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 4px);
+    width: 180px;
+    background-color: var(--color-bg);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-xxs) 0;
+    border-radius: var(--radius-md);
+    z-index: var(--z-index-popover);
+    user-select: none;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.2s, opacity 0.2s;
+  }
+
+  .adapt-nav__dropdown--is-visible {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 0.2s;
+  }
+
+  .adapt-nav__dropdown-link {
+    display: block;
+    padding: var(--space-xxs) var(--space-sm);
+    text-decoration: none;
+    color: var(--color-contrast-high);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: 0.2s;
+
+    &:hover {
+      background-color: alpha(var(--color-contrast-higher), 0.075);
+    }
+
+    &[aria-current="page"] {
+      color: var(--color-bg);
+      background-color: var(--color-contrast-higher);
+    }
+  }
+}
+
+html:not(.js) {
+  .adapt-nav {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .adapt-nav__list {
+    overflow: auto;
+    justify-content: left;
+  }
+}

@@ -1,0 +1,6 @@
+@use "../base" as *;
+
+.product-v2 .thumbslide {
+  --thumbslide-thumbnail-auto-size: 90px;
+  --thumbslide-thumbnail-grid-gap: var(--space-xxxs);
+}

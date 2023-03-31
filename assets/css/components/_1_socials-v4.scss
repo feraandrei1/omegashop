@@ -1,0 +1,40 @@
+@use "../base" as *;
+
+.socials-v4 {
+  position: relative;
+  z-index: 1;
+}
+
+.socials-v4__btn {
+  --btn-size: 40px;
+  width: var(--btn-size);
+  height: var(--btn-size);
+
+  display: inline-flex;
+
+  background: var(--color-bg-light);
+  box-shadow: var(--inner-glow), var(--shadow-sm);
+  border-radius: 50%;
+
+  transition: 0.2s;
+
+  .icon {
+    display: block;
+    margin: auto;
+    color: var(--color-contrast-high);
+    transition: color 0.2s;
+  }
+
+  &:hover {
+    background-color: var(--color-bg-lighter);
+    box-shadow: var(--inner-glow), var(--shadow-md);
+
+    .icon {
+      color: var(--color-primary);
+    }
+  }
+
+  @media screen {
+    --btn-size: 48px;
+  }
+}

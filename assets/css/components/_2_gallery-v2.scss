@@ -1,0 +1,20 @@
+@use "../base" as *;
+
+:root {
+  --gallery-v2-offset: 50px;
+}
+
+.gallery-v2 {
+  position: relative;
+  z-index: 1;
+}
+
+@include breakpoint(sm) {
+  .gallery-v2__grid {
+    padding-bottom: var(--gallery-v2-offset);
+  }
+
+  .gallery-v2__item:nth-child(2n) {
+    transform: translateY(var(--gallery-v2-offset));
+  }
+}

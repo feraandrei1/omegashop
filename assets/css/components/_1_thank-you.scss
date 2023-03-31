@@ -1,0 +1,43 @@
+@use "../base" as *;
+
+.thank-you {
+  position: relative;
+  z-index: 1;
+}
+
+.thank-you__icon {
+  width: 80px;
+  height: 80px;
+  animation: thank-you-icon 0.5s var(--ease-out);
+}
+
+.thank-you__icon-group {
+  transform-origin: 50% 50%;
+
+  > *:last-child {
+    transform-origin: 50% 50%;
+    stroke-dashoffset: 55;
+    stroke-dasharray: 55;
+    animation: thank-you-icon-check 0.5s var(--ease-out) forwards;
+  }
+}
+
+@keyframes thank-you-icon {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes thank-you-icon-check {
+  from {
+    stroke-dashoffset: 55;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}

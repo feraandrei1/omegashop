@@ -1,0 +1,25 @@
+@use "../base" as *;
+
+.t-article-v4__divider {
+  display: flex;
+  align-items: center;
+
+  span {
+    display: block;
+    margin: 0 var(--space-xs);
+    height: 10px;
+    width: 10px;
+    transform: rotate(45deg);
+    background-color: var(--color-contrast-lower);
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: auto;
+    flex-grow: 1;
+    background-color: var(--color-contrast-lower);
+  }
+}

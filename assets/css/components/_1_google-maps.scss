@@ -1,0 +1,15 @@
+@use "../base" as *;
+
+.google-maps {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+}
+
+.google-maps--ratio-4\:1 {
+  padding-bottom: 25%;
+}
+
+.google-maps--ratio-3\:1 {
+  padding-bottom: 33%;
+}

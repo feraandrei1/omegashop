@@ -1,0 +1,32 @@
+@use "../base" as *;
+
+.-translate-y-1 {
+  transform: translateY(-1px);
+}
+.-translate-y-2 {
+  transform: translateY(-2px);
+}
+.translate-y-1 {
+  transform: translateY(1px);
+}
+.translate-y-2 {
+  transform: translateY(2px);
+}
+
+.padding-top-header {
+  padding-top: var(--mega-nav-height);
+}
+
+:root,
+[data-theme="dark"] {
+  --color-border-alpha: hsla(
+    var(--color-contrast-higher-h),
+    var(--color-contrast-higher-s),
+    var(--color-contrast-higher-l),
+    0.1
+  );
+}
+
+.border-alpha {
+  border-color: var(--color-border-alpha);
+}

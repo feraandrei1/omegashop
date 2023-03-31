@@ -1,0 +1,33 @@
+@use "../base" as *;
+
+@include breakpoint(md) {
+  .product-v3__panel {
+    position: sticky;
+    top: calc(var(--space-md) + var(--mega-nav-height));
+    height: 100%;
+    max-height: calc(100vh - var(--space-md) - var(--mega-nav-height));
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+.product-v3__cta-clone {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  background-color: alpha(var(--color-bg), 0.9);
+  backdrop-filter: blur(5px);
+  box-shadow: var(--shadow-lg);
+  z-index: var(--z-index-fixed-element);
+  transform: translateY(100%);
+  visibility: hidden;
+  transition: transform 0.3s, visibility 0s 0.3s;
+}
+
+.product-v3__cta-clone--is-visible {
+  transform: translateY(0);
+  visibility: visible;
+  transition: transform 0.3s;
+}

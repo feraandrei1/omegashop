@@ -1,0 +1,25 @@
+@use "../base" as *;
+
+.feature-v4 {
+  position: relative;
+  z-index: 1;
+  --feature-text-offset: 65%;
+}
+
+@each $breakpoint, $value in $breakpoints {
+  @include breakpoint(#{$breakpoint}) {
+    .feature-v4__text-offset\@#{$breakpoint} {
+      width: calc(100% + var(--feature-text-offset));
+    }
+
+    .feature-v4--invert\@#{$breakpoint} {
+      .feature-v4__grid > *:last-child {
+        order: -1;
+      }
+
+      .feature-v4__text-offset\@#{$breakpoint} {
+        margin-left: calc(var(--feature-text-offset) * -1);
+      }
+    }
+  }
+}
